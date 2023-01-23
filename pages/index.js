@@ -1,9 +1,8 @@
-import { redirect } from "next/dist/server/api-utils";
-import Router from "next/router";
 export default function Home() {
   return (
     <div>
       <h1>ini adalah asd home</h1>
+      <h1></h1>
     </div>
   );
 }
@@ -15,7 +14,7 @@ export async function getServerSideProps(ctx) {
   if (!token) {
     return {
       redirect: {
-        destination: "/register",
+        destination: "/auth/register",
         permanent: false,
       },
     };
