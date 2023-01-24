@@ -55,6 +55,8 @@ export default function Register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log("you are registered successfully");
+        cookie.set("Token", userCredential.user.uid);
+        router.push("/");
       })
       .catch((error) => {
         console.log(error.message);
