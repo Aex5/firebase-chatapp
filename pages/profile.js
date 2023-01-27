@@ -4,16 +4,15 @@ import { useEffect } from "react";
 
 const Profile = () => {
   const auth = getAuth();
+  const user = auth.currentUser;
 
-  const initiateAuth = () => {
-    Authentication().onAuthStateChanged((user) => {
-      if (user) {
-        console.log("User is signed in");
-      } else {
-        console.log("User is not signed in");
-      }
-    });
-  };
+  if (user !== null) {
+    const displayName = user.displayName;
+    const email = user.email;
+    const photoURL = user.photoURL;
+    const emailVerified = user.emailVerified;
+    const uid = user.uid;
+  }
 
   useEffect(() => {}, []);
   return (
