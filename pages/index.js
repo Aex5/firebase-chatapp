@@ -14,12 +14,14 @@ export default function Home() {
             <div className="p-5 w-80 bg-[#0D0D0D] rounded-xl text-gray-300">
               <h1 className="font-semibold text-lg mb-5">Groups</h1>
 
-              <div className="flex items-center justify-start gap-5 pb-5 border-b-[1px] border-gray-700">
-                <div className="w-10 h-10 rounded-full bg-white"></div>
+              <div className="flex flex-col">
                 {chatRooms.map((room) => {
-                  <div key={room.id}>
-                    <Link ref={`/room/${room.id}`}>{room.title}</Link>
-                  </div>;
+                  return (
+                    <div key={room.id} className="flex">
+                      <div className="w-10 h-10 rounded-full bg-white"></div>
+                      <Link href={`/room/${room.id}`}>{room.title}</Link>
+                    </div>
+                  );
                 })}
               </div>
             </div>
