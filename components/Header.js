@@ -1,15 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { IoNotificationsSharp, IoExit } from "react-icons/io5";
 
-const Header = () => {
+const Header = ({ photoURL }) => {
   return (
     <nav className="w-20 inset-y-5 left-5 bg-[#0f5263] fixed rounded-xl">
       <main className="h-full flex flex-col items-center justify-around gap-20 pt-10">
         <div>
           <Link href="/profile">
-            <div className="w-14 h-14 rounded-full bg-white"></div>
+            {photoURL && (
+              <Image
+                src={photoURL}
+                alt=""
+                height={50}
+                width={50}
+                className="rounded-full"
+              />
+            )}
           </Link>
         </div>
 

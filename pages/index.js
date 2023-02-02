@@ -1,12 +1,17 @@
+import useUser from "../hooks/useUser";
+
 import Header from "../components/Header";
 import Search from "../components/Search";
 import { chatRooms } from "../data/chatRooms";
 import Link from "next/link";
 
 export default function Home() {
+  const user = useUser();
+  const [photoURL, uid, userName] = user;
+
   return (
     <main className="w-full mt-5">
-      <Header />
+      <Header photoURL={photoURL} />
       <div className="flex justify-between max-w-[1100px] mx-auto">
         <div>
           <div className="space-y-10">
