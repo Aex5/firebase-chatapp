@@ -11,6 +11,8 @@ import { useRouter } from "next/router";
 import cookie from "js-cookie";
 import { useState } from "react";
 
+import Image from "next/image";
+
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -79,9 +81,11 @@ export default function Register() {
           onClick={signInWithGoogle}
           className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-500 py-3.5 px-4 border rounded-lg border-gray-300 flex items-center w-full mt-10"
         >
-          <img
+          <Image
             src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg"
             alt="google"
+            width={20}
+            height={20}
           />
           <p className="text-base font-medium ml-4 text-gray-700">
             Continue with Google
@@ -91,18 +95,22 @@ export default function Register() {
           onClick={signInWithGithub}
           className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-500 py-3.5 px-4 border rounded-lg border-gray-300 flex items-center w-full mt-4"
         >
-          <img
+          <Image
             src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg3.svg"
             alt="github"
+            width={20}
+            height={20}
           />
           <p className="text-base font-medium ml-4 text-gray-700">
             Continue with Github
           </p>
         </button>
         <button className="focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-500 py-3.5 px-4 border rounded-lg border-gray-300 flex items-center w-full mt-4">
-          <img
+          <Image
             src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg4.svg"
             alt="twitter"
+            width={20}
+            height={20}
           />
           <p className="text-base font-medium ml-4 text-gray-700">
             Continue with Twitter
@@ -137,9 +145,11 @@ export default function Register() {
                 className="bg-gray-200 border rounded-lg  text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
               />
               <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
-                <img
+                <Image
                   src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg5.svg"
-                  alt="viewport"
+                  alt="twitter"
+                  width={20}
+                  height={20}
                 />
               </div>
             </div>

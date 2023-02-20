@@ -1,7 +1,6 @@
 import useUser from "../hooks/useUser";
 
-import Header from "../components/Header";
-import Search from "../components/Search";
+import Layout from "../components/Layout";
 import { chatRooms } from "../data/chatRooms";
 import Link from "next/link";
 
@@ -10,35 +9,44 @@ export default function Home() {
   const [photoURL, uid, userName] = user;
 
   return (
-    <main className="w-full mt-5">
-      <Header photoURL={photoURL} />
-      <div className="flex justify-between max-w-[1100px] mx-auto">
-        <div>
-          <div className="space-y-10">
-            <Search />
-            <div className="p-5 w-80 bg-[#0D0D0D] rounded-xl text-gray-300">
-              <h1 className="font-semibold text-lg mb-5">Groups</h1>
+    <Layout photoURL={photoURL}>
+      <main className="w-full">
+        <div className="flex justify-between max-w-[1000px] mx-auto pt-16 gap-5">
+          <div>
+            <div className="space-y-10">
+              <div className="py-5 w-80 bg-[#EAEAEA] rounded-xl text-[#3C4048] shadow-xl border-2">
+                <h1 className="pl-5 font-semibold text-lg mb-5">Groups</h1>
 
-              <div className="flex flex-col">
-                {chatRooms.map((room) => {
-                  return (
-                    <div key={room.id} className="flex">
-                      <div className="w-10 h-10 rounded-full bg-white"></div>
-                      <Link href={`/room/${room.id}`}>{room.title}</Link>
-                    </div>
-                  );
-                })}
+                <div className="flex flex-col gap-5">
+                  {chatRooms.map((room) => {
+                    return (
+                      <div
+                        key={room.id}
+                        className="flex justify-start items-center gap-5 py-3 pl-5 hover:bg-[#00ABB3] duration-200"
+                      >
+                        <div className="w-10 h-10 rounded-full bg-white"></div>
+                        <Link href={`/room/${room.id}`}>{room.title}</Link>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* chat box */}
-        <div className="p-5 w-[750px] bg-[#0D0D0D] rounded-xl text-gray-300">
-          <h1 className="font-semibold text-lg mb-5">Chats</h1>
+          {/* chat box */}
+          <div className="px-10 w-[750px] h-[30rem] text-[#3C4048]">
+            <h1 className="font-semibold text-2xl mb-5 ">
+              Hello {userName} !!
+            </h1>
+            <p>
+              kok masih sepi ya? <br />
+              kamu bisa mulai chatting... ya walaupun kamu ga penting sihh
+            </p>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </Layout>
   );
 }
 

@@ -1,23 +1,13 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { Authentication } from "../firebase";
-import { useEffect } from "react";
+import useUser from "../hooks/useUser";
+import Header from "../components/Header";
 
 const Profile = () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const userCtx = useUser();
+  const [photoURL, uid, userName] = userCtx;
 
-  if (user !== null) {
-    const displayName = user.displayName;
-    const email = user.email;
-    const photoURL = user.photoURL;
-    const emailVerified = user.emailVerified;
-    const uid = user.uid;
-  }
-
-  useEffect(() => {}, []);
   return (
     <div>
-      <h1></h1>
+      <Header photoURL={photoURL} />
     </div>
   );
 };
