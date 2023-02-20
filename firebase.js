@@ -1,7 +1,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+  onSnapshot,
+  query,
+  orderBy,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAzlHJcxNiQv-8r18vAFdrDeF7ugu1QSzk",
@@ -15,6 +23,22 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+async function sendMessage(roomId, user, text) {
+  try {
+    await addDoc(collection(db, "chat-room", roomId, "messages"), {
+      uid: user.uid,
+      displayName: user.displayName,
+      text: text.trim(),
+      timestamp: serverTimestamp(),
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 const db = getFirestore(app);
 
-export const Authentication = getAuth(app);
+const Authentication = getAuth(app);
+
+export { sendMessage, Authentication, db };
