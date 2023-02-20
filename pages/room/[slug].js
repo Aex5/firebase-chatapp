@@ -62,7 +62,7 @@ export default function Room({ room }) {
           <div>
             {messages.map((m) => {
               return (
-                <div>
+                <div key={m.id}>
                   <div
                     className={`w-full flex items-center space-x-2 my-2 sm:space-x-3.5 ${
                       uid === m.uid
