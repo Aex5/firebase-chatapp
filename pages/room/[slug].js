@@ -54,8 +54,8 @@ export default function Room({ room }) {
 
   return (
     <Layout photoURL={photoURL}>
-      <main className="w-full">
-        <div className="max-w-[1000px] mx-auto">
+      <main className="w-full pb-20">
+        <div className="max-w-[1000px] mx-auto ">
           <h2 className="text-center text-xl font-semibold text-[#5d626b] py-10 border-b-2 border-[#b1b5bd]">
             {room.title}
           </h2>
@@ -97,23 +97,24 @@ export default function Room({ room }) {
               );
             })}
           </div>
-
-          <form onSubmit={addData} className="flex mt-10 relative">
-            <input
-              type="text"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-              className="w-full h-10 p-5 outline-none rounded-lg"
-            />
-            <button
-              type="submit"
-              className="absolute right-5 translate-y-[10px]"
-            >
-              <IoPaperPlaneSharp className="w-6 h-6 text-[#00ABB3]" />
-            </button>
-          </form>
         </div>
       </main>
+      <div className="w-full bg-[#F0EEED] fixed bottom-0">
+        <form
+          onSubmit={addData}
+          className="max-w-[1000px] mx-auto flex mt-10 relative bottom-5"
+        >
+          <input
+            type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="w-full h-10 p-5 outline-none rounded-lg"
+          />
+          <button type="submit" className="absolute right-5 translate-y-3">
+            <IoPaperPlaneSharp className="w-6 h-6 text-[#00ABB3] z-10" />
+          </button>
+        </form>
+      </div>
     </Layout>
   );
 }
