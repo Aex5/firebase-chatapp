@@ -3,10 +3,18 @@ import { FaBars, FaTimes, FaGithub, FaLinkedin, FaInbox } from "react-icons/fa";
 import Link from "next/link";
 import useUser from "../hooks/useUser";
 import Image from "next/image";
+import Router from "next/router";
+
+import Cookies from "js-cookie";
 
 export default function Header() {
   const user = useUser();
   const [photoURL, uid, userName] = user;
+
+  function handleSignOUt() {
+    Cookies.remove("Token");
+    Router.push("/");
+  }
 
   const [nav, setNav] = useState(false);
   const handleClick = () => {
@@ -39,7 +47,10 @@ export default function Header() {
         </div>
 
         <div>
-          <button className="hidden md:block md:bg-rose-600 md:hover:bg-rose-700 md:duration-200 py-2 px-4 rounded-lg text-[#ffffff]">
+          <button
+            onClick={handleSignOUt}
+            className="hidden md:block md:bg-rose-600 md:hover:bg-rose-700 md:duration-200 py-2 px-4 rounded-lg text-[#ffffff]"
+          >
             Sign Out
           </button>
         </div>
@@ -85,7 +96,7 @@ export default function Header() {
 
           <div>
             <button
-              onClick={handleClick}
+              onClick={handleSignOUt}
               className="bg-rose-600 hover:bg-rose-700 duration-200 py-1 px-3 rounded-md text-[#ffffff]"
             >
               Sign Out

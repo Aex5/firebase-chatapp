@@ -116,7 +116,7 @@ export default function Room({ room }) {
               type="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="w-full h-10 p-5 outline-none rounded-lg"
+              className="w-full h-10 p-5 outline-none rounded-lg break-words"
             />
             <button type="submit" className="absolute right-5 translate-y-3">
               <IoPaperPlaneSharp className="w-6 h-6 text-[#00ABB3] z-10" />
@@ -128,9 +128,19 @@ export default function Room({ room }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }, ctx) {
   const { slug } = params;
   const room = chatRooms.find((room) => room.id === slug);
+
+  const token = ctx.req.cookies.token;
+  if (!token) {
+    return {
+      redirect: {
+        destination: "/auth/register",
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: {

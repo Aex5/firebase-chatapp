@@ -28,6 +28,7 @@ export default function Register() {
         (res) => {
           cookie.set("Token", res.user.uid);
           router.push("/");
+          window.location.reload();
         }
       );
     } catch (error) {
@@ -44,6 +45,7 @@ export default function Register() {
         (res) => {
           cookie.set("Token", res.user.uid);
           router.push("/");
+          window.location.reload();
         }
       );
     } catch (error) {
@@ -59,6 +61,7 @@ export default function Register() {
         console.log("you are registered successfully");
         cookie.set("Token", userCredential.user.uid);
         router.push("/");
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error.message);
