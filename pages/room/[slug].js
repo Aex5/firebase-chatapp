@@ -47,6 +47,7 @@ export default function Room({ room }) {
         timestamp: serverTimestamp(),
       });
       setText("");
+      window.scrollTo(0, document.body.scrollHeight);
     } catch (error) {
       console.error(error);
     }
@@ -54,9 +55,9 @@ export default function Room({ room }) {
 
   return (
     <Layout photoURL={photoURL}>
-      <main className="w-full pb-20">
+      <main className="w-full py-20 px-5">
         <div className="max-w-[1000px] mx-auto ">
-          <h2 className="text-center text-xl font-semibold text-[#5d626b] py-10 border-b-2 border-[#b1b5bd]">
+          <h2 className="text-center text-xl font-semibold text-[#5d626b] py-10">
             {room.title}
           </h2>
           <div>
