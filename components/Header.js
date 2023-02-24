@@ -39,7 +39,7 @@ export default function Header() {
         </div>
 
         <div>
-          <button className="hidden md:block md:bg-rose-600 py-2 px-4 rounded-lg text-[#ffffff]">
+          <button className="hidden md:block md:bg-rose-600 md:hover:bg-rose-700 md:duration-200 py-2 px-4 rounded-lg text-[#ffffff]">
             Sign Out
           </button>
         </div>
@@ -86,7 +86,7 @@ export default function Header() {
           <div>
             <button
               onClick={handleClick}
-              className="bg-rose-600 py-1 px-2 rounded-md text-[#ffffff]"
+              className="bg-rose-600 hover:bg-rose-700 duration-200 py-1 px-3 rounded-md text-[#ffffff]"
             >
               Sign Out
             </button>
