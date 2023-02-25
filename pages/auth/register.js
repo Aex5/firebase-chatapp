@@ -119,14 +119,14 @@ export default function Register() {
             Continue with Twitter
           </p>
         </button>
-        <div className="w-full flex items-center justify-between py-5">
+        {/* <div className="w-full flex items-center justify-between py-5">
           <hr className="w-full bg-gray-400" />
           <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
             OR
           </p>
           <hr className="w-full bg-gray-400  " />
-        </div>
-        <form onSubmit={handleSignUp}>
+        </div> */}
+        {/* <form onSubmit={handleSignUp}>
           <div>
             <label className="text-sm font-medium leading-none text-gray-800">
               Email
@@ -165,7 +165,7 @@ export default function Register() {
               Create my account
             </button>
           </div>
-        </form>
+        </form> */}
       </div>
     </div>
   );
