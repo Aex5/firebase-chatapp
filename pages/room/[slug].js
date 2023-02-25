@@ -128,11 +128,12 @@ export default function Room({ room }) {
   );
 }
 
-export async function getServerSideProps({ params }, ctx) {
-  const { slug } = params;
+export async function getServerSideProps(ctx) {
+  const slug = ctx.params.slug;
   const room = chatRooms.find((room) => room.id === slug);
 
-  const token = ctx.req.cookies.token;
+  const token = ctx.req.cookies.Token;
+
   if (!token) {
     return {
       redirect: {
